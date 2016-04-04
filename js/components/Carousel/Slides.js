@@ -3,7 +3,7 @@ import ReactCarouselSlide from "./Slide";
 
 export default class ReactCarouselSlides extends React.Component {
     render() {
-        var self = this,
+        let self = this,
             cssTranslate = 'translate3d(-' + this.props.currentSlide * this.props.slideWidth + 'px, 0, 0)',
             css = {
                 transform: cssTranslate,
@@ -12,10 +12,11 @@ export default class ReactCarouselSlides extends React.Component {
             slideData = this.props.slideData.map(function(slide, index) {
             return (
                 <ReactCarouselSlide 
+                    {...self.props}
                     key={index} 
                     name={slide.name} 
                     image={slide.image} 
-                    slideWidth={self.props.slideWidth}/>
+                />
             );
         });
         
