@@ -1,27 +1,15 @@
+// Dependencies
 import React from "react";
 
+// Components
+import classNames from 'classnames';
+
 export default class ReactCarouselPaginationDot extends React.Component {
-    constructor() {
-        super();
-        this.css = {};
-    }
-
-    setActiveStyle() {
-        if (this.props.currentSlide !== this.props.position) {
-            this.css = {
-                background: '#999'
-            };
-        } else {
-            this.css = {
-                background: '#333'
-            };
-        }
-    }
-
     render() {
-        this.setActiveStyle();
+        let classes = classNames('react-carousel__pagination-dot', 
+                                {'react-carousel__pagination-dot--active': this.props.active});
         return (
-            <div class="pagination-dot" style={this.css}></div>
+            <div className={classes}></div>
         );
     }
 }

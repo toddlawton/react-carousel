@@ -1,11 +1,14 @@
+// Dependencies
 import React from "react";
+
+// Components
 import ReactCarouselSlide from "./Slide";
 
 export default class ReactCarouselSlides extends React.Component {
     render() {
         let self = this,
             cssTranslate = 'translate3d(-' + this.props.currentSlide * this.props.slideWidth + 'px, 0, 0)',
-            css = {
+            mutableStyles = {
                 transform: cssTranslate,
                 width: this.props.slideWrapperWidth
             },
@@ -21,8 +24,8 @@ export default class ReactCarouselSlides extends React.Component {
         });
         
         return (
-            <div class="react-carousel-slide-container" 
-                style={css}>{slideData}
+            <div class="react-carousel__slides" 
+                style={mutableStyles}>{slideData}
             </div>
         );
     }

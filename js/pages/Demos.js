@@ -1,6 +1,8 @@
+// Dependencies
 import React from "react";
-import ReactCarouselWrapper from "../components/ReactCarouselWrapper";
-import { storiesOf, action } from '@kadira/storybook';
+
+// Components
+import ReactCarouselWrapper from "../components/Carousel/ReactCarouselWrapper";
 
 export default class Demos extends React.Component {
     render() {
@@ -19,11 +21,3 @@ export default class Demos extends React.Component {
         );
     }
 }
-
-storiesOf('Carousel', module)
-  .add('with a text', () => (
-    <button onClick={action('clicked')}>My First Button</button>
-  ))
-  .add('with no text', () => (
-    <button></button>
-  ));

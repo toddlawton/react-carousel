@@ -1,11 +1,14 @@
+// Dependencies
 import React from "react";
-import ReactCarousel from "../components/ReactCarousel";
+
+// Components
+import ReactCarousel from "./ReactCarousel";
 
 export default class ReactCarouselWrapper extends React.Component {
     constructor() {
         super();
         this.state = {
-            containerWidth: 0
+            containerWidth: 0,
         }
         this.handleResize = this.handleResize.bind(this);
     }
@@ -30,7 +33,6 @@ export default class ReactCarouselWrapper extends React.Component {
     render() {
         return (
             <div ref="element">
-            
                 <ReactCarousel {...this.props} containerWidth={this.state.containerWidth} />
             </div>
         )

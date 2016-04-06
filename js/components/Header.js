@@ -1,6 +1,9 @@
+// Dependencies
 import React from "react";
-import Title from "./Header/Title";
 import { Link } from "react-router";
+
+// Components
+import Title from "./Header/Title";
 
 export default class Header extends React.Component {
     render() {

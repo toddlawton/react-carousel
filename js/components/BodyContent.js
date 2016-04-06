@@ -1,5 +1,8 @@
+// Dependencies
 import React from "react";
-import ReactCarousel from "./ReactCarousel";
+
+// Components
+import ReactCarousel from "./Carousel/ReactCarousel";
 
 export default class BodyContent extends React.Component {
     render() {
