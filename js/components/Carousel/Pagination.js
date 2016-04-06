@@ -2,9 +2,9 @@
 import React from "react";
 
 // Components
-import ReactCarouselPaginationDot from "./PaginationDot";
+import PaginationDot from "./PaginationDot";
 
-export default class ReactCarouselPagination extends React.Component {
+export default class Pagination extends React.Component {
     
     render() {
         let self = this,
@@ -16,7 +16,7 @@ export default class ReactCarouselPagination extends React.Component {
             }
 
             return (
-                <ReactCarouselPaginationDot 
+                <PaginationDot 
                     {...self.props}
                     key={index} 
                     position={index}

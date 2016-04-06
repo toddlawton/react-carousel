@@ -1,7 +1,7 @@
 // Dependencies
 import React from "react";
 
-export default class ReactCarouselSlide extends React.Component {
+export default class Slide extends React.Component {
     render() {
         let slideWidth = {
             width: this.props.slideWidth + 'px'

@@ -2,9 +2,9 @@
 import React from "react";
 
 // Components
-import ReactCarousel from "./ReactCarousel";
+import SlideContainer from "./SlideContainer";
 
-export default class ReactCarouselWrapper extends React.Component {
+export default class Carousel extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -33,7 +33,7 @@ export default class ReactCarouselWrapper extends React.Component {
     render() {
         return (
             <div ref="element">
-                <ReactCarousel {...this.props} containerWidth={this.state.containerWidth} />
+                <SlideContainer {...this.props} containerWidth={this.state.containerWidth} />
             </div>
         )
     }

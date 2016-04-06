@@ -2,7 +2,7 @@
 import React from "react";
 
 // Components
-import ReactCarouselWrapper from "../components/Carousel/ReactCarouselWrapper";
+import Carousel from "../components/Carousel/Carousel";
 
 export default class Demos extends React.Component {
     render() {
@@ -13,7 +13,7 @@ export default class Demos extends React.Component {
                 </div>
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
-                    <ReactCarouselWrapper 
+                    <Carousel 
                     slidesPerPage="1" 
                     slideData={window.mockSlideData} />
                 </div>

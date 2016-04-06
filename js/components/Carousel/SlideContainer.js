@@ -2,10 +2,10 @@
 import React from "react";
 
 // Components
-import ReactCarouselPagination from "./Pagination";
-import ReactCarouselSlides from "./Slides";
+import Pagination from "./Pagination";
+import Slides from "./Slides";
 
-export default class ReactCarousel extends React.Component {
+export default class SlideContainer extends React.Component {
     constructor() {
         super();
         this.state = { 
@@ -46,16 +46,18 @@ export default class ReactCarousel extends React.Component {
         return (
             <div class="react-carousel__container">
                 <div class="react-carousel__wrapper">
-                    <ReactCarouselSlides 
+                    <Slides 
                         {...this.props}
                         slideOffset={this.state.slideOffset}
                         currentSlide={currentSlide}
                         slideWidth={slideWidth} 
-                        slideWrapperWidth={slideWrapperWidth} />
+                        slideWrapperWidth={slideWrapperWidth} 
+                    />
                 </div>
-                <ReactCarouselPagination 
+                <Pagination 
                     {...this.props} 
-                    currentSlide={currentSlide} />
+                    currentSlide={currentSlide} 
+                />
                 <div class="react-carousel__slide-arrow react-carousel__slide-arrow--prev" onClick={() => this.advanceSlide('backward')}><i class="fa fa-chevron-left"></i></div>
                 <div class="react-carousel__slide-arrow react-carousel__slide-arrow--next" onClick={() => this.advanceSlide('forward')}><i class="fa fa-chevron-right"></i></div>
             </div>
