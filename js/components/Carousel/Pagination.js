@@ -5,7 +5,6 @@ import React from "react";
 import PaginationDot from "./PaginationDot";
 
 export default class Pagination extends React.Component {
-    
     render() {
         let self = this,
         slideData = this.props.slideData.map(function(slide, index) {

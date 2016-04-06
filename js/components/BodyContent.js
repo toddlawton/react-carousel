@@ -2,7 +2,7 @@
 import React from "react";
 
 // Components
-import ReactCarousel from "./Carousel/ReactCarousel";
+import ReactCarousel from "./Carousel/Carousel";
 
 export default class BodyContent extends React.Component {
     render() {
@@ -10,7 +10,7 @@ export default class BodyContent extends React.Component {
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
-                    <ReactCarousel slidesPerPage="1" slideData={window.mockSlideData} />
+                    <Carousel slidesPerPage="1" slideData={window.mockSlideData} />
                 </div>
             </div>
         );
