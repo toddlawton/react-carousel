@@ -7,28 +7,30 @@ import PaginationDot from "./PaginationDot";
 export default class Pagination extends React.Component {
     render() {
         let self = this,
-        slideData = this.props.slideData.map(function(slide, index) {
+            numberOfSlides = this.props.slideData.length,
+            numberOfDots = numberOfSlides / this.props.slidesPerPage,
+            slideData = [];
+
+        for (let index = 0; index < numberOfDots; index++) {
             let active = false;
             
-            if (self.props.currentSlide === index) {
+            if (self.props.currentPage === index) {
                 active = true;
             }
-
-            return (
+            slideData.push(
                 <PaginationDot 
                     {...self.props}
                     key={index} 
                     position={index}
                     active={active}
-                    currentSlide={self.props.currentSlide} 
-                />
+                    currentPage={self.props.currentPage} />
             );
-        });
+        }
 
         return (
             <div class="react-carousel__pagination">
                 <div class="react-carousel__pagination-dots">
-                    {slideData}
+                    {slideData}                    
                 </div>
             </div>
         );

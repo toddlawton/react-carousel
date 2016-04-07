@@ -1,5 +1,4 @@
 // Dependencies
-import Radium from "radium";
 import React from "react";
 import Footer from "./Footer";
 
@@ -7,8 +6,7 @@ import Footer from "./Footer";
 import BodyContent from "./BodyContent";
 import Header from "./Header";
 
-@Radium
-class Layout extends React.Component {
+export default class Layout extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -26,5 +24,3 @@ class Layout extends React.Component {
         );
     }
 }
-
-export default Radium(Layout)

@@ -4,44 +4,51 @@ import React from "react";
 // Components
 import Pagination from "./Pagination";
 import Slides from "./Slides";
+import classNames from 'classnames';
 
 export default class SlideContainer extends React.Component {
     constructor() {
         super();
         this.state = { 
-            currentSlide: 0,
+            currentPage: 0,
             slideOffset: 0
         };
     }
 
-    componentWillMount() {
-        this.setState({ slideCount: this.props.slideData.length })
-    }
-
     advanceSlide(direction) {
-        let currentSlide = this.state.currentSlide;
+        let currentPage = this.state.currentPage,
+            pageCount = Math.ceil(this.props.slideData.length / this.props.slidesPerPage);
 
         if (direction === 'backward') {
-            if (currentSlide > 0) { 
-                currentSlide -= 1;
-                this.setState({ currentSlide: currentSlide })
+            if (currentPage > 0) { 
+                this.setState({ currentPage: currentPage-1 })
             } else {
-                this.setState({ currentSlide: this.state.slideCount-1 })
+                this.setState({ currentPage: pageCount-1 })
             }
         } else {
-            if (currentSlide < this.state.slideCount-1) {
-                currentSlide += 1;
-                this.setState({ currentSlide: currentSlide });
+            if (currentPage < pageCount-1) {
+                this.setState({ currentPage: currentPage+1 });
             } else {
-                this.setState({ currentSlide: 0 });
+                this.setState({ currentPage: 0 });
             }
         }
     }
 
     render() {
-        let currentSlide = this.state.currentSlide,
+        let slideCount = this.props.slideData.length,
+            pageCount = Math.ceil(this.props.slideData.length / this.props.slidesPerPage),
+            currentPage = this.state.currentPage,
             slideWidth = this.props.containerWidth / this.props.slidesPerPage,
-            slideWrapperWidth = slideWidth * this.state.slideCount;
+            slidePageWidth = slideWidth * this.props.slidesPerPage,
+            slideWrapperWidth = slideWidth * slideCount,
+            canAdvance = currentPage < pageCount -1 ? true : false,
+            canRewind = currentPage > 0,
+            prevArrowClasses = classNames('react-carousel__slide-arrow react-carousel__slide-arrow--prev', {'react-carousel__slide-arrow--active': canRewind}),
+            nextArrowClasses = classNames('react-carousel__slide-arrow react-carousel__slide-arrow--next', {'react-carousel__slide-arrow--active': canAdvance});
+
+        if (currentPage > pageCount-1) {
+            currentPage = pageCount-1;
+        }
 
         return (
             <div class="react-carousel__container">
@@ -49,17 +56,18 @@ export default class SlideContainer extends React.Component {
                     <Slides 
                         {...this.props}
                         slideOffset={this.state.slideOffset}
-                        currentSlide={currentSlide}
-                        slideWidth={slideWidth} 
+                        currentPage={currentPage}
+                        slideWidth={slideWidth}
+                        slidePageWidth={slidePageWidth}
                         slideWrapperWidth={slideWrapperWidth} 
                     />
                 </div>
                 <Pagination 
                     {...this.props} 
-                    currentSlide={currentSlide} 
+                    currentPage={currentPage} 
                 />
-                <div class="react-carousel__slide-arrow react-carousel__slide-arrow--prev" onClick={() => this.advanceSlide('backward')}><i class="fa fa-chevron-left"></i></div>
-                <div class="react-carousel__slide-arrow react-carousel__slide-arrow--next" onClick={() => this.advanceSlide('forward')}><i class="fa fa-chevron-right"></i></div>
+                <div className={prevArrowClasses} onClick={() => this.advanceSlide('backward')}><i class="fa fa-chevron-left"></i></div>
+                <div className={nextArrowClasses} onClick={() => this.advanceSlide('forward')}><i class="fa fa-chevron-right"></i></div>
             </div>
         );
     }

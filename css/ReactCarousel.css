@@ -56,9 +56,16 @@
     top: 50%;
     font-size: 16px;
     padding: 16px;
-    cursor: pointer;
+    cursor: default;
     box-sizing: border-box;
     transform: translateY(-50%);
+    color: #efefef;
+    transition: color .33s cubic-bezier(.33,0,.2,1);
+}
+
+.react-carousel__slide-arrow--active {
+    color: #000;
+    cursor: pointer;
 }
 
 .react-carousel__slide-arrow--next {

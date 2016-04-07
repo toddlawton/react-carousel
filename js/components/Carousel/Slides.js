@@ -7,7 +7,8 @@ import Slide from "./Slide";
 export default class Slides extends React.Component {
     render() {
         let self = this,
-            cssTranslate = 'translate3d(-' + this.props.currentSlide * this.props.slideWidth + 'px, 0, 0)',
+            translatePageWidth = this.props.currentPage * this.props.slidePageWidth,
+            cssTranslate = 'translate3d(-' + translatePageWidth + 'px, 0, 0)',
             mutableStyles = {
                 transform: cssTranslate,
                 width: this.props.slideWrapperWidth
